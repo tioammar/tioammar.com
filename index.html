@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<title>Tioammar</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/main.css">
+		<link rel="icon" type="image/png" href="images/favicon.png">
+	</head>
+	<body>
+		<div class="empty"></div>
+		<div class="top">
+			<div class="photo-holder"></div>
+		</div>
+		<div class="content">
+			<div class="message">
+				<p>Work In Progress!</p>
+			</div>
+			<div class="social">
+				<a href="https://plus.google.com/+AdityaAmirullah" class="google icon"></a>
+				<a href="https://twitter.com/tioammar" class="twitter icon"></a>
+				<a href="https://instagram.com/tioammar" class="instagram icon"></a>
+				<a href="https://github.com/tioammar" class="github icon"></a>
+				<a href="https://facebook.com/tioammar" class="facebook icon"></a>
+			</div>
+		</div>
+		<footer>
+			<p>&#169Aditya Amirullah 2015</p>
+		</footer>
+	</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('body').hide();
+		$('body').fadeIn(1500);
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.icon').hover(function(){
+			$(this).animate({opacity: "1"}, 300);
+		},
+		function(){
+			$(this).animate({opacity: "0.6"}, 300);
+		});
+	});
+</script>
+</html>

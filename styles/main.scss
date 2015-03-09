@@ -1,0 +1,128 @@
+@import 'body';
+
+$containPadding: 60px;
+$containPaddingSmall: 40px;
+$photoSize: 128px;
+$photoSize-small: 98px;
+$iconSize: 42px;
+$iconSizeSmall: 36px;
+$breakSmall: 360px;
+
+@mixin respond-to($media){
+	@if $media == handhelds {
+		@media only screen and (max-width: $breakSmall) { @content; }
+	}
+}
+
+.empty {
+	background-color: #FFFFFF;
+	width: 100%;
+	flex: 1;
+}
+.top {
+	background-color: #2196F3;
+	width: 100%;
+	display: flex;
+	height: $photoSize/2 + $containPadding;
+	justify-content: center;
+	position: relative;
+
+	@include respond-to(phone) {
+		height: $photoSize-small/2 + $containPaddingSmall;
+	}
+
+	.photo-holder {
+		background: url(../images/me.png);
+		background-size: cover;
+		background-color: white;
+		height: $photoSize;
+		width: $photoSize;
+		border-radius: 100%;
+		top: 0 - $photoSize/2;
+		position: absolute;
+		margin-left: 0 - $photoSize/2;
+		border: 4px solid #FFF;
+
+		@include respond-to(handhelds) { 
+			height: $photoSize-small;
+			width: $photoSize-small;
+			top: 0 - $photoSize-small/2;
+			margin-left: 0 - $photoSize-small/2;
+		}
+	}
+}
+.content {
+	flex: 2;
+	width: 300px;
+	position: relative;
+
+	@include respond-to(handhelds){
+		width: 250px;
+	}
+
+	.message {
+		background-color: #F44336;
+		margin: 0 auto;
+		border-radius: 3px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		border-bottom: 2px solid #C62828;
+		box-sizing: border-box;
+
+		p {
+			color: #FFFFFF;
+			font-size: 1.2em;
+		}
+	}
+}	
+.social {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: $containPadding 0;
+	width: 90%;
+	margin: 0 auto;
+
+	@include respond-to(handhelds){
+		padding: $containPaddingSmall 0;
+	}
+		
+	a {
+		width: $iconSize;
+		height: $iconSize;
+		display: block;
+
+		@include respond-to(handhelds){
+			width: $iconSizeSmall;
+			height: $iconSizeSmall;
+		}
+	}
+	$socials: google twitter instagram github facebook;
+	@each $social in $socials {
+		.#{$social} { 
+		background: url(../images/#{$social}.png);
+		background-size: $iconSize $iconSize;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		opacity: 0.6;
+
+			@include respond-to(handhelds){
+				background-size: $iconSizeSmall $iconSizeSmall;
+			}
+		}
+	}
+}
+footer {
+	height: 60px;
+	width: 100%;
+	background-color: #1565C0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	p{
+		color: #FFFFFF;
+		font-size: 0.9em;
+	}
+}
